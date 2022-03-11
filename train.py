@@ -10,7 +10,7 @@ def train(args):
 	train_path = args.i
 	model_path = args.o
 	if not os.path.exists(model_path):
-		os.mkdir(model_path)
+		os.makedirs(model_path)
 	MAX_LEN = int(args.m)
 	BATCH_SIZE = int(args.b)
 	LEARNING_RATE = float(args.l)

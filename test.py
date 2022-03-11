@@ -15,7 +15,7 @@ def test(args):
 	model_path = args.i
 	pred_path = args.o
 	if not os.path.exists(pred_path):
-		os.mkdir(pred_path)
+		os.makedirs(pred_path)
 	MAX_LEN = int(args.m)
 	BATCH_SIZE = int(args.b)
 	### READ TRAINING DATA ###

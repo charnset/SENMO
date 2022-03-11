@@ -1,4 +1,5 @@
 import argparse
+import os
 import time
 import re
 import numpy as np
@@ -89,6 +90,8 @@ def clean(note, libr):
 Main: PREPROCESSING
 """
 def preprocessing(args):
+	input_path = args.i
+	output_path = args.o
 	df = pd.read_csv(args.i)
 	clean_notes = []
 	dur = 0
@@ -99,7 +102,10 @@ def preprocessing(args):
 	print("lib: {}, time: {:3f}s".format(args.c, dur))
 	df['Note'] = clean_notes
 	df = df.sample(frac=1, random_state=1).reset_index(drop=True)
-	df.to_csv(args.o, index=False)
+	directory = os.path.dirname(output_path)
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+	df.to_csv(output_path, index=False)
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description="Preprocessing arguments",
