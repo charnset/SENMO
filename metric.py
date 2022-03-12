@@ -61,6 +61,7 @@ def false_positive(df_preds, df_test, output_file):
 	print('\n')
 	output_file.write('\n')
 
+### compute accuracy for NONE class"
 def none_accuracy(df_preds, df_test, output_file):
 	c1 = 0
 	n1 = 0
@@ -102,6 +103,7 @@ def none_accuracy(df_preds, df_test, output_file):
 	output_file.write('\n')
 	output_file.write('\n')
 
+### per-note accuracy: accuracy that the model predicts every class correctly for each note ###
 def pernote_accuracy(df_preds, df_test, output_file):
 	c = 0
 	n = len(df_test)
