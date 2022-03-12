@@ -39,7 +39,7 @@ def test(args):
 	df_preds = pd.DataFrame(predictions, columns=label_cols)
 	df_preds.insert(0, "Note", df["Note"])
 	### EVALUATION ###
-	with open(pred_path + "/score.csv", 'w') as score_file:
+	with open(pred_path + "/score.txt", 'w') as score_file:
 		print('### Accuracy ###')
 		accuracy(df_preds, df, score_file)
 		print('### True Positive ###')
